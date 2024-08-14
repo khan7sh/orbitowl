@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Owl - Your AI Development Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #1DA1F2;
+            --dark-blue: #15202B;
+            --medium-blue: #192734;
+            --light-blue: #8899A6;
+            --text-light: #FFFFFF;
+            --text-dark: #0F1419;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-blue);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: var(--dark-blue);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--medium-blue);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 32px;
+            margin-right: 10px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+        }
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #1991db;
+        }
+        .features, .pricing, .process {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--medium-blue);
+        }
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .feature-grid, .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card, .pricing-card {
+            background: var(--medium-blue);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover, .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(29, 161, 242, 0.1);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        .pricing-card {
+            text-align: center;
+        }
+        .popular-tag {
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        ul li::before {
+            content: '•';
+            color: var(--primary-blue);
+            margin-right: 0.5rem;
+        }
+        .process-list {
+            counter-reset: process-counter;
+        }
+        .process-item {
+            counter-increment: process-counter;
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        .process-item::before {
+            content: counter(process-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        footer {
+            background: var(--medium-blue);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="/api/placeholder/32/32" alt="Orbit Owl Logo">
+                    Orbit Owl
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your Dedicated AI Development Team</h1>
+            <p>Unlock unprecedented growth with custom AI solutions</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Features</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Boost Efficiency</h3>
+                    <p>Outsource complex tasks, not just emails.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-check-double"></i></div>
+                    <h3>Reduce Mistakes</h3>
+                    <p>Fine-tuned agents require minimal supervision.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Stay Ahead</h3>
+                    <p>Adapt quickly with cutting-edge AI technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Scale Seamlessly</h3>
+                    <p>Add more agents without affecting overhead.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Pricing Plans</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Consulting</h3>
+                    <div class="price">$247/h</div>
+                    <ul>
+                        <li>Strategic roadmap development</li>
+                        <li>Custom AI agent development</li>
+                        <li>Dedicated Project Manager</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Expert Advice</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="popular-tag">POPULAR</div>
+                    <h3>Business</h3>
+                    <div class="price">$5400/mo</div>
+                    <ul>
+                        <li>Strategic roadmap development</li>
+                        <li>Custom AI agent development</li>
+                        <li>Dedicated Project Manager</li>
+                        <li>Full Stack Development</li>
+                    </ul>
+                    <a href="#" class="cta-button">Book Consultation</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li>Strategic roadmap development</li>
+                        <li>Custom AI agent development</li>
+                        <li>Dedicated Project Manager</li>
+                        <li>Full Stack Development</li>
+                        <li>Multiple AI agent projects</li>
+                    </ul>
+                    <a href="#" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Process</h2>
+            </div>
+            <div class="process-list">
+                <div class="process-item">
+                    <h3>AI Readiness Consultation</h3>
+                    <p>We align our AI solutions with your business goals.</p>
+                </div>
+                <div class="process-item">
+                    <h3>Transparent Progress Tracking</h3>
+                    <p>Real-time progress tracking and feedback.</p>
+                </div>
+                <div class="process-item">
+                    <h3>Seamless Integration</h3>
+                    <p>Embed AI agents for immediate value delivery.</p>
+                </div>
+                <div class="process-item">
+                    <h3>Ongoing Support</h3>
+                    <p>Continuous refinement and expansion of capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Orbit Owl. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
